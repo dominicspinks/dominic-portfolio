@@ -1,19 +1,21 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
 	const form = useRef();
+	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const sendEmail = (e) => {
 		e.preventDefault();
-		console.log(form);
+
 		emailjs
 			.sendForm('service_9ninlqb', 'template_3i22kjj', form.current, {
 				publicKey: '_vScShfGw_s20VTwu',
 			})
 			.then(
 				() => {
-					console.log('SUCCESS!');
+					setFormSubmitted(true);
 				},
 				(error) => {
 					console.log('FAILED...', error.text);
@@ -85,9 +87,15 @@ export default function Contact() {
 				</div>
 				<button
 					type='submit'
-					className='bg-slate-900 py-3 my-8 px-8 rounded-lg text-white font-bold'>
+					className='bg-slate-900 py-3 w-full my-8 px-8 rounded-lg text-white font-bold'>
 					Send Message
 				</button>
+				<p
+					className={`text-center ${
+						formSubmitted ? 'block' : 'hidden'
+					}`}>
+					Thanks for the message! I will be in touch soon.
+				</p>
 			</form>
 		</div>
 	);
