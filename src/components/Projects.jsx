@@ -24,11 +24,12 @@ export default function Projects() {
 		{
 			img: RepRealmImg,
 			title: 'RepRealm',
-			subtitle: 'React, Supabase',
+			subtitle: 'MongoDB, Express, NodeJs',
 			description: '',
 			demoLink: 'https://reprealm.onrender.com/',
 		},
 	]);
+
 	return (
 		<div id='projects' className='max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
 			<h1 className='text-4xl font-bold text-center text-slate-700'>
