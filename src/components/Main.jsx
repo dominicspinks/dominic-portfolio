@@ -26,7 +26,7 @@ export default function Main() {
                         <a
                             href={resumeFile}
                             target='_blank'
-                            className='border-2 border-slate-900 px-4 py-2 w-full text-center mt-4 hover:border-slate-700 hover:bg-slate-500 hover:text-white'>
+                            className='border-2 border-slate-900 px-4 py-2 w-full text-center mt-4 hover:border-slate-700 hover:bg-gray-400 hover:text-white'>
                             Check out my Resume Here
                         </a>
                     </div>
