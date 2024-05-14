@@ -9,94 +9,67 @@ import ProjectPacerImg from '../assets/projectPacer.png';
 import TripMixerImg from '../assets/tripMixer.png';
 import RepRealmImg from '../assets/repRealm.png';
 
-const responsive = {
-    superLargeDesktop: {
-        // the naming can be any, depends on you.
-        breakpoint: { max: 4000, min: 3000 },
-        items: 5,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-    },
-};
-
 export default function Projects() {
-    const projects = useRef([
-        {
-            img: ProjectPacerImg,
-            title: 'ProjectPacer',
-            subtitle: 'React, Supabase',
-            description: '',
-            demoLink: 'https://projectpacer.netlify.app/',
-        },
-        {
-            img: TripMixerImg,
-            title: 'TripMixer',
-            subtitle: 'Python, Django, PostgreSQL',
-            description: '',
-            demoLink: 'https://sei-tripmixer.fly.dev/',
-        },
-        {
-            img: RepRealmImg,
-            title: 'RepRealm',
-            subtitle: 'MongoDB, Express, NodeJs',
-            description: '',
-            demoLink: 'https://reprealm.onrender.com/',
-        },
-    ]);
-    const responsive = {
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: 1,
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 1,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-        },
-    };
-    return (
-        <div id='projects' className='h-screen m-auto md:pl-20 p-4 py-16'>
-            <h1 className='text-4xl font-bold text-center text-slate-700 py-4'>
-                Projects
-            </h1>
-            <Carousel
-                swipeable={false}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                slidesToSlide={2}
-                infinite={true}
-                autoPlay={false}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition='all .5'
-                transitionDuration={500}
-                containerClass='carousel-container'
-                dotListClass='custom-dot-list-style'
-                itemClass='carousel-item-padding-40-px'
-                className='rounded-xl h-4/5 w-full m-auto lg:w-3/4'>
-                {projects.current.map((project) => (
-                    <ProjectItem key={project.title} project={project} />
-                ))}
-            </Carousel>
-        </div>
-    );
+	const projects = useRef([
+		{
+			img: ProjectPacerImg,
+			title: 'ProjectPacer',
+			subtitle: 'React, Supabase',
+			description: `This is my capstone project for General Assembly's Software Engineering Immersive.
+
+ProjectPacer is a project management application designed to help small teams efficiently manage their projects. It provides features for user authentication, tracking project progress, and facilitating team communication through the included chat widget.`,
+			demoLink: 'https://projectpacer.netlify.app/',
+		},
+		{
+			img: TripMixerImg,
+			title: 'TripMixer',
+			subtitle: 'Python, Django, PostgreSQL',
+			description: `TripMixer is a travel planning app designed to help users create and manage their holiday. Users can plan their trips, select their preferred destinations, and customize their itinerary to suit their preferences.
+
+Users can also share their trips and experiences with other users, allowing them to get inspired and connect with other travellers.`,
+			demoLink: 'https://sei-tripmixer.fly.dev/',
+		},
+		{
+			img: RepRealmImg,
+			title: 'RepRealm',
+			subtitle: 'MongoDB, Express, NodeJs',
+			description: `RepRealm is a web application for creating and storing your custom workout routines.
+
+Users can browse through the repository of other user's shared workouts, saving those they like to perform for themselves.`,
+			demoLink: 'https://reprealm.onrender.com/',
+		},
+	]);
+	const responsive = {
+		all: {
+			breakpoint: { max: 4000, min: 0 },
+			items: 1,
+		},
+	};
+	return (
+		<div id='projects' className='h-screen m-auto md:pl-20 p-4 py-16'>
+			<h1 className='text-4xl font-bold text-center text-slate-700 py-4'>
+				Projects
+			</h1>
+			<Carousel
+				swipeable={true}
+				draggable={false}
+				showDots={true}
+				responsive={responsive}
+				slidesToSlide={1}
+				infinite={true}
+				autoPlay={false}
+				autoPlaySpeed={1000}
+				keyBoardControl={true}
+				customTransition='all .5'
+				transitionDuration={500}
+				containerClass='carousel-container'
+				dotListClass='custom-dot-list-style'
+				itemClass='carousel-item-padding-40-px'
+				className='rounded-xl h-full w-full m-auto lg:w-3/4 max-w-[1000px]'>
+				{projects.current.map((project) => (
+					<ProjectItem key={project.title} project={project} />
+				))}
+			</Carousel>
+		</div>
+	);
 }
