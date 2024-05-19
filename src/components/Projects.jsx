@@ -15,10 +15,9 @@ export default function Projects() {
 			img: ProjectPacerImg,
 			title: 'ProjectPacer',
 			subtitle: 'React, Supabase',
-			description: `This is my capstone project for General Assembly's Software Engineering Immersive.
-
-ProjectPacer is a project management application designed to help small teams efficiently manage their projects. It provides features for user authentication, tracking project progress, and facilitating team communication through the included chat widget.`,
+			description: `Project management application designed to help small teams efficiently manage their projects. It provides features for user authentication, tracking project progress, and facilitating team communication through the included chat widget.`,
 			demoLink: 'https://projectpacer.netlify.app/',
+			githubLink: 'https://github.com/dominicspinks/ProjectPacer',
 		},
 		{
 			img: TripMixerImg,
@@ -28,6 +27,7 @@ ProjectPacer is a project management application designed to help small teams ef
 
 Users can also share their trips and experiences with other users, allowing them to get inspired and connect with other travellers.`,
 			demoLink: 'https://sei-tripmixer.fly.dev/',
+			githubLink: 'https://github.com/dominicspinks/TripMixer',
 		},
 		{
 			img: RepRealmImg,
@@ -37,6 +37,7 @@ Users can also share their trips and experiences with other users, allowing them
 
 Users can browse through the repository of other user's shared workouts, saving those they like to perform for themselves.`,
 			demoLink: 'https://reprealm.onrender.com/',
+			githubLink: 'https://github.com/dominicspinks/RepRealm',
 		},
 	]);
 	const responsive = {
@@ -45,6 +46,7 @@ Users can browse through the repository of other user's shared workouts, saving 
 			items: 1,
 		},
 	};
+
 	return (
 		<div id='projects' className='h-screen m-auto md:pl-20 p-4 py-16'>
 			<h1 className='text-4xl font-bold text-center text-slate-700 py-4'>
@@ -53,18 +55,14 @@ Users can browse through the repository of other user's shared workouts, saving 
 			<Carousel
 				swipeable={true}
 				draggable={false}
-				showDots={true}
+				showDots={false}
 				responsive={responsive}
 				slidesToSlide={1}
 				infinite={true}
 				autoPlay={false}
 				autoPlaySpeed={1000}
 				keyBoardControl={true}
-				customTransition='all .5'
-				transitionDuration={500}
-				containerClass='carousel-container'
-				dotListClass='custom-dot-list-style'
-				itemClass='carousel-item-padding-40-px'
+				transitionDuration={1000}
 				className='rounded-xl h-full w-full m-auto lg:w-3/4 max-w-[1000px]'>
 				{projects.current.map((project) => (
 					<ProjectItem key={project.title} project={project} />
