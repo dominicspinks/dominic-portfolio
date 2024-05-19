@@ -1,5 +1,4 @@
-import { FaExternalLinkSquareAlt } from 'react-icons/fa';
-import { FaGithub } from 'react-icons/fa';
+import { FaExternalLinkSquareAlt, FaGithub } from 'react-icons/fa';
 
 export default function ProjectItem({ project }) {
     console.log(project.description);

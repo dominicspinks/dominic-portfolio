@@ -2,7 +2,6 @@ import { useRef } from 'react';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 import ProjectItem from './ProjectItem';
 import ProjectPacerImg from '../assets/projectPacer.png';
