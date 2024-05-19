@@ -7,6 +7,8 @@ import {
 } from 'react-icons/ai';
 import { BsPerson } from 'react-icons/bs';
 
+import HoverLabelIcon from './HoverLabelIcon';
+
 export default function Sidenav() {
 	const [nav, setNav] = useState(false);
 
@@ -56,26 +58,26 @@ export default function Sidenav() {
 			)}
 			<div className='md:block hidden fixed top-[25%] z-10'>
 				<div className='flex flex-col'>
-					<a
+					<HoverLabelIcon
 						href='#main'
-						className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
-						<AiOutlineHome size={20} />
-					</a>
-					<a
+						Icon={AiOutlineHome}
+						label='Home'
+					/>
+					<HoverLabelIcon
 						href='#aboutMe'
-						className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
-						<BsPerson size={20} />
-					</a>
-					<a
+						Icon={BsPerson}
+						label='About Me'
+					/>
+					<HoverLabelIcon
 						href='#projects'
-						className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
-						<AiOutlineProject size={20} />
-					</a>
-					<a
+						Icon={AiOutlineProject}
+						label='Projects'
+					/>
+					<HoverLabelIcon
 						href='#contact'
-						className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
-						<AiOutlineMail size={20} />
-					</a>
+						Icon={AiOutlineMail}
+						label='Contact'
+					/>
 				</div>
 			</div>
 		</div>
