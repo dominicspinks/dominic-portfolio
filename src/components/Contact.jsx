@@ -1,6 +1,9 @@
 import { useRef, useState } from 'react';
 
 import emailjs from '@emailjs/browser';
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { HiMail } from 'react-icons/hi';
+import { FaLocationDot } from 'react-icons/fa6';
 
 export default function Contact() {
     const form = useRef();
@@ -16,6 +19,7 @@ export default function Contact() {
             .then(
                 () => {
                     setFormSubmitted(true);
+                    form.current.reset();
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
@@ -30,73 +34,97 @@ export default function Contact() {
             <h1 className='py-4 text-4xl font-bold text-center text-slate-700'>
                 Contact
             </h1>
-            <form ref={form} onSubmit={sendEmail} className=''>
-                <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
-                    <div className='flex flex-col'>
-                        <label
-                            htmlFor='from_name'
-                            className='uppercase text-sm py-2'>
-                            Name *
-                        </label>
+            <div className='flex flex-col lg:flex-row justify-center items-start gap-4 lg:gap-8 flex-wrap w-full'>
+                <div className='min-w-[300px] flex flex-col items-start gap-2 lg:gap-6'>
+                    <p className='text-lg'>
+                        Feel free to reach out if you want to work together
+                    </p>
+                    <div className='flex gap-4 items-center'>
+                        <FaLocationDot
+                            className='hover:scale-110 ease-in duration-300'
+                            size={20}
+                        />
+                        Melbourne
+                    </div>
+                    <a
+                        href='mailto:contact@dominicspinks.com'
+                        className='flex gap-4 items-center'>
+                        <HiMail
+                            className='hover:scale-110 ease-in duration-300 hover:opacity-50 cursor-pointer'
+                            size={20}
+                        />
+                        <p>dominic.spinks@outlook.com</p>
+                    </a>
+                    <a
+                        href='https://www.linkedin.com/in/dominic-spinks/'
+                        className='flex gap-4 items-center'
+                        target='_blank'>
+                        <FaLinkedinIn
+                            className='hover:scale-110 ease-in duration-300 hover:opacity-50 cursor-pointer'
+                            size={20}
+                        />
+                        <p>linkedin.com/in/dominic-spinks/</p>
+                    </a>
+                    <a
+                        href='https://github.com/dominicspinks'
+                        className='flex gap-4 items-center'
+                        target='_blank'>
+                        <FaGithub
+                            className='hover:scale-110 ease-in duration-300 hover:opacity-50 cursor-pointer'
+                            size={20}
+                        />
+                        <p>github.com/dominicspinks</p>
+                    </a>
+                </div>
+                <form
+                    ref={form}
+                    onSubmit={sendEmail}
+                    className='w-full lg:w-1/2 min-w-[300px] flex flex-col gap-2'>
+                    <div className='grid md:grid-cols-2 gap-4 w-full'>
                         <input
                             type='text'
                             id='from_name'
                             name='from_name'
+                            placeholder='Name *'
                             className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300'
                             required
                         />
-                    </div>
-                    <div className='flex flex-col'>
-                        <label
-                            htmlFor='from_phone'
-                            className='uppercase text-sm py-2'>
-                            Phone Number
-                        </label>
                         <input
                             type='text'
                             id='from_phone'
                             name='from_phone'
+                            placeholder='Phone Number'
                             className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300'
                         />
                     </div>
-                </div>
-                <div className='flex flex-col'>
-                    <label
-                        htmlFor='from_email'
-                        className='uppercase text-sm py-2'>
-                        Email *
-                    </label>
                     <input
                         type='email'
                         id='from_email'
                         name='from_email'
-                        className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300'
+                        placeholder='Email Address *'
+                        className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300 w-full'
                         required
                     />
-                </div>
-                <div className='flex flex-col'>
-                    <label htmlFor='message' className='uppercase text-sm py-2'>
-                        Message *
-                    </label>
                     <textarea
                         rows='6'
                         id='message'
                         name='message'
-                        className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300'
+                        placeholder='Enter your message'
+                        className='border-2 border-gray-300 rounded-lg p-3 flex border-gray-300 w-full'
                         required></textarea>
-                </div>
-                <button
-                    type='submit'
-                    className='bg-slate-900 py-3 w-full my-8 px-8 rounded-lg text-white font-bold'>
-                    Send Message
-                </button>
-                <p
-                    className={`text-center ${
-                        formSubmitted ? 'block' : 'hidden'
-                    }`}>
-                    Thanks for the message! I will be in touch soon.
-                </p>
-            </form>
+                    <button
+                        type='submit'
+                        className='bg-slate-900 py-3 w-full px-8 rounded-lg text-white font-bold'>
+                        Send Message
+                    </button>
+                    <p
+                        className={`text-center ${
+                            formSubmitted ? 'block' : 'hidden'
+                        }`}>
+                        Thanks for the message! I will be in touch soon.
+                    </p>
+                </form>
+            </div>
         </div>
     );
 }
