@@ -30,13 +30,16 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 ## Screenshots
 
 <img src="./src/assets/screenshot_homepage.png" alt="Home Page" width="400"/>
-*Homepage*
+
+_Homepage_
 
 <img src="./src/assets/screenshot_projects.png" alt="Projects" width="400"/>
-*Projects*
+
+_Projects_
 
 <img src="./src/assets/screenshot_contact.png" alt="Contact" width="400"/>
-*Contact*
+
+_Contact_
 
 ## Contact
 
