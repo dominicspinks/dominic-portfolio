@@ -40,7 +40,7 @@ export default function Main() {
                             />
                         </a>
                         <a
-                            href='https://www.linkedin.com/in/dominic-spinks/'
+                            href='https://www.linkedin.com/in/dominicspinks/'
                             target='_blank'>
                             <FaLinkedinIn
                                 className='hover:scale-110 ease-in duration-300 cursor-pointer'
