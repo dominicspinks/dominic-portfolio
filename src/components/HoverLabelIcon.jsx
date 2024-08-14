@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function HoverLabelIcon({ href, Icon, label }) {
+export default function HoverLabelIcon({ href, Icon, label, onSideNavClick }) {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseEnter = () => setIsHovered(true);
@@ -12,7 +12,8 @@ export default function HoverLabelIcon({ href, Icon, label }) {
                 href={href}
                 className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}>
+                onMouseLeave={handleMouseLeave}
+                onClick={onSideNavClick}>
                 <Icon size={20} />
             </a>
             {isHovered && (

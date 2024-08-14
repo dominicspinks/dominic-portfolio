@@ -9,11 +9,15 @@ import { BsPerson } from 'react-icons/bs';
 
 import HoverLabelIcon from './HoverLabelIcon';
 
-export default function Sidenav() {
+export default function Sidenav({ handleNavClick }) {
     const [nav, setNav] = useState(false);
 
     function handleNav() {
         setNav(!nav);
+    }
+    function handleNavItemClick(index) {
+        handleNav();
+        handleNavClick(index);
     }
 
     return (
@@ -27,28 +31,28 @@ export default function Sidenav() {
                     // onClick={handleNav}
                     className='fixed w-full h-screen bg-white/90 flex flex-col justify-center items-center z-20'>
                     <a
-                        onClick={handleNav}
+                        onClick={() => handleNavItemClick(0)}
                         href='#main'
                         className='w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
                         <AiOutlineHome size={20} />
                         <span className='pl-4'>Home</span>
                     </a>
                     <a
-                        onClick={handleNav}
+                        onClick={() => handleNavItemClick(1)}
                         href='#aboutMe'
                         className='w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
                         <BsPerson size={20} />
                         <span className='pl-4'>About Me</span>
                     </a>
                     <a
-                        onClick={handleNav}
+                        onClick={() => handleNavItemClick(2)}
                         href='#projects'
                         className='w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
                         <AiOutlineProject size={20} />
                         <span className='pl-4'>Projects</span>
                     </a>
                     <a
-                        onClick={handleNav}
+                        onClick={() => handleNavItemClick(3)}
                         href='#contact'
                         className='w-[75%] flex justify-center items-center rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-105 ease-in duration-300'>
                         <AiOutlineMail size={20} />
@@ -62,21 +66,25 @@ export default function Sidenav() {
                         href='#main'
                         Icon={AiOutlineHome}
                         label='Home'
+                        onSideNavClick={() => handleNavClick(0)}
                     />
                     <HoverLabelIcon
                         href='#aboutMe'
                         Icon={BsPerson}
                         label='About Me'
+                        onSideNavClick={() => handleNavClick(1)}
                     />
                     <HoverLabelIcon
                         href='#projects'
                         Icon={AiOutlineProject}
                         label='Projects'
+                        onSideNavClick={() => handleNavClick(2)}
                     />
                     <HoverLabelIcon
                         href='#contact'
                         Icon={AiOutlineMail}
                         label='Contact'
+                        onSideNavClick={() => handleNavClick(3)}
                     />
                 </div>
             </div>
