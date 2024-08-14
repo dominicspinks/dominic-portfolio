@@ -1,7 +1,6 @@
 import { FaExternalLinkSquareAlt, FaGithub } from 'react-icons/fa';
 
 export default function ProjectItem({ project }) {
-    console.log(project.description);
     return (
         <div className='relative flex flex-col lg:flex-row items-center justify-center gap-4 rounded-xl p-4 px-16 lg:px-24 bg-gray-200 h-full w-full'>
             <div>
