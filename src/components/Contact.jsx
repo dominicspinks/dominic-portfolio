@@ -56,14 +56,14 @@ export default function Contact() {
                         <p>dominic.spinks@outlook.com</p>
                     </a>
                     <a
-                        href='https://www.linkedin.com/in/dominic-spinks/'
+                        href='https://www.linkedin.com/in/dominicspinks/'
                         className='flex gap-4 items-center'
                         target='_blank'>
                         <FaLinkedinIn
                             className='hover:scale-110 ease-in duration-300 hover:opacity-50 cursor-pointer'
                             size={20}
                         />
-                        <p>linkedin.com/in/dominic-spinks/</p>
+                        <p>linkedin.com/in/dominicspinks/</p>
                     </a>
                     <a
                         href='https://github.com/dominicspinks'
