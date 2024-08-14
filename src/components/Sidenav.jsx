@@ -24,12 +24,10 @@ export default function Sidenav({ handleNavClick }) {
         <div>
             <AiOutlineMenu
                 onClick={handleNav}
-                className='absolute top-4 right-4 z-[99] md:hidden'
+                className='top-4 right-4 z-[99] md:hidden fixed'
             />
             {nav && (
-                <div
-                    // onClick={handleNav}
-                    className='fixed w-full h-screen bg-white/90 flex flex-col justify-center items-center z-20'>
+                <div className='fixed w-full h-screen bg-white/90 flex flex-col justify-center items-center z-[98]'>
                     <a
                         onClick={() => handleNavItemClick(0)}
                         href='#main'

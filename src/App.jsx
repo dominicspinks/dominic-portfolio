@@ -48,14 +48,12 @@ function App() {
                 if (endY > startY.current && prevIndex > 0) {
                     // Swiping up
                     scrollOffset = -1;
-                    console.log('up');
                 } else if (
                     endY < startY.current &&
                     prevIndex < sections.length - 1
                 ) {
                     // Swiping down
                     scrollOffset = 1;
-                    console.log('down');
                 }
 
                 setCurrentIndex(prevIndex + scrollOffset);
