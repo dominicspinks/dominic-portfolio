@@ -47,7 +47,9 @@ Users can browse through the repository of other user's shared workouts, saving 
     };
 
     return (
-        <div id='projects' className='h-screen m-auto md:pl-20 p-4 py-16'>
+        <div
+            id='projects'
+            className='flex flex-col items-center justify-center h-screen max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
             <h1 className='text-4xl font-bold text-center text-slate-700 py-4'>
                 Projects
             </h1>
@@ -62,7 +64,7 @@ Users can browse through the repository of other user's shared workouts, saving 
                 autoPlaySpeed={1000}
                 keyBoardControl={true}
                 transitionDuration={1000}
-                className='rounded-xl h-full w-full m-auto lg:w-3/4 max-w-[1000px]'>
+                className='rounded-xl w-full m-auto my-0 py-2 lg:w-3/4 max-w-[1000px]'>
                 {projects.current.map((project) => (
                     <ProjectItem key={project.title} project={project} />
                 ))}

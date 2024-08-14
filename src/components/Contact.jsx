@@ -30,7 +30,7 @@ export default function Contact() {
     return (
         <div
             id='contact'
-            className='max-w-[1000px] h-full m-auto p-4 md:pl-20 p-4 py-16'>
+            className='flex flex-col items-center justify-center h-screen max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
             <h1 className='py-4 text-4xl font-bold text-center text-slate-700'>
                 Contact
             </h1>
