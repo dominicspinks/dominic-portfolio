@@ -15,14 +15,11 @@ export default function HoverLabelIcon({ href, Icon, label }) {
                 onMouseLeave={handleMouseLeave}>
                 <Icon size={20} />
             </a>
-            <div
-                className={`px-2 py-1 text-sm bg-gray-200 text-gray-800 rounded transition-opacity transition-transform duration-300 ease-in-out ${
-                    isHovered
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-2'
-                }`}>
-                {label}
-            </div>
+            {isHovered && (
+                <div className='px-2 py-1 text-sm bg-gray-200 text-gray-800 rounded transition-opacity transition-transform duration-300 ease-in-out translate-y-0'>
+                    {label}
+                </div>
+            )}
         </div>
     );
 }
