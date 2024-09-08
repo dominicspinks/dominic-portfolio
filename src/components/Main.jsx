@@ -2,7 +2,7 @@ import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 
 import profileImg from '../assets/profile.png';
-import resumeFile from '../assets/DominicSpinksResume.pdf';
+// import resumeFile from '../assets/DominicSpinksResume.pdf';
 
 export default function Main() {
     return (
@@ -23,12 +23,12 @@ export default function Main() {
                             <br />
                             Based in Melbourne
                         </h3>
-                        <a
+                        {/* <a
                             href={resumeFile}
                             target='_blank'
                             className='border-2 border-slate-900 px-4 py-2 w-full text-center mt-4 hover:border-slate-700 hover:bg-gray-400 hover:text-white'>
                             Check out my Resume Here
-                        </a>
+                        </a> */}
                     </div>
                     <div className='flex flex-col justify-around pl-4 gap-4'>
                         <a

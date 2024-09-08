@@ -30,7 +30,7 @@ export default function Contact() {
     return (
         <div
             id='contact'
-            className='max-w-[1000px] h-full m-auto p-4 md:pl-20 p-4 py-16'>
+            className='flex flex-col items-center justify-center h-screen max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
             <h1 className='py-4 text-4xl font-bold text-center text-slate-700'>
                 Contact
             </h1>
@@ -56,14 +56,14 @@ export default function Contact() {
                         <p>dominic.spinks@outlook.com</p>
                     </a>
                     <a
-                        href='https://www.linkedin.com/in/dominic-spinks/'
+                        href='https://www.linkedin.com/in/dominicspinks/'
                         className='flex gap-4 items-center'
                         target='_blank'>
                         <FaLinkedinIn
                             className='hover:scale-110 ease-in duration-300 hover:opacity-50 cursor-pointer'
                             size={20}
                         />
-                        <p>linkedin.com/in/dominic-spinks/</p>
+                        <p>linkedin.com/in/dominicspinks/</p>
                     </a>
                     <a
                         href='https://github.com/dominicspinks'

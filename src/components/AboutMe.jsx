@@ -1,6 +1,8 @@
 export default function AboutMe() {
     return (
-        <div id='aboutMe' className='max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
+        <div
+            id='aboutMe'
+            className='flex flex-col items-center justify-center h-screen max-w-[1000px] m-auto md:pl-20 p-4 py-16'>
             <h1 className='text-4xl font-bold text-center text-slate-700 py-4'>
                 About Me
             </h1>
