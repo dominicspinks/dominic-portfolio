@@ -8,32 +8,20 @@ export default function AboutMe() {
             </h1>
             <div className='flex flex-col justify-center items-center'>
                 <p className='text-start py-2 max-w-[700px]'>
-                    I'm a software engineer with a six-year journey through the
-                    diverse realms of IT and software development. Starting from
-                    hands-on technical support, progressing through software
-                    testing and documentation, and advancing into software
-                    design and management, I've consistently delivered impactful
-                    results.
+                    I'm a software engineer with six years of experience in IT,
+                    starting in tech support and moving through roles in testing,
+                    documentation, design, and management.
                 </p>
                 <p className='text-start py-2 max-w-[700px]'>
-                    My core strength lies in problem-solving and critical
-                    thinking, thriving on intellectually challenging work that
-                    involves solving novel problems. Anchored in a value system
-                    of honesty, transparency, and accountability, I am known
-                    among colleagues for being patient, rational, and logical.
-                    This adaptability and collaborative mindset have been
-                    crucial in navigating transitions and resolving complex
-                    issues.
+                    Problem-solving and critical thinking are my strengths. I enjoy
+                    tackling challenging issues with a focus on honesty and
+                    accountability. Colleagues know me as patient, logical, and adaptable.
                 </p>
                 <p className='text-start py-2 max-w-[700px]'>
-                    While my current role encompasses designing software, my
-                    ambition extends to overseeing the entire process—from
-                    feature design to code development. This aspiration prompted
-                    my enrollment in General Assembly's Software Engineering
-                    Immersive, marking my commitment to becoming a software
-                    engineer. Looking forward, I am poised to leverage this
-                    background, coupled with my newfound skills, to make
-                    impactful strides in software engineering.
+                    My goal is to lead projects from design to development, which inspired
+                    me to complete General Assembly's Software Engineering Immersive. I'm
+                    excited to use my skills and experience to make an impact in software
+                    engineering.
                 </p>
             </div>
         </div>
