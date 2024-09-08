@@ -25,7 +25,7 @@ export default function Projects() {
             description: `TripMixer is a travel planning app designed to help users create and manage their holiday. Users can plan their trips, select their preferred destinations, and customize their itinerary to suit their preferences.
 
 Users can also share their trips and experiences with other users, allowing them to get inspired and connect with other travellers.`,
-            demoLink: 'https://sei-tripmixer.fly.dev/',
+            demoLink: 'https://tripmixer.dominicspinks.com/',
             githubLink: 'https://github.com/dominicspinks/TripMixer',
         },
         {
