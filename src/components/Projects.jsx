@@ -35,7 +35,7 @@ Users can also share their trips and experiences with other users, allowing them
             description: `RepRealm is a web application for creating and storing your custom workout routines.
 
 Users can browse through the repository of other user's shared workouts, saving those they like to perform for themselves.`,
-            demoLink: 'https://reprealm.onrender.com/',
+            demoLink: 'https://reprealm.dominicspinks.com/',
             githubLink: 'https://github.com/dominicspinks/RepRealm',
         },
     ]);
