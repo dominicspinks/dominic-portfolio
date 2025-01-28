@@ -7,9 +7,18 @@ import ProjectItem from './ProjectItem';
 import ProjectPacerImg from '../assets/projectPacer.png';
 import TripMixerImg from '../assets/tripMixer.png';
 import RepRealmImg from '../assets/repRealm.png';
+import StoreBytesImg from '../assets/storeBytes.png';
 
 export default function Projects() {
     const projects = useRef([
+        {
+            img: StoreBytesImg,
+            title: 'StoreBytes',
+            subtitle: 'C#, .NET 8, PostgreSQL',
+            description: `A file storage and management system inspired by AWS S3. StoreBytes allows users to upload, retrieve, and manage files through a secure API, with public URLs enabling seamless file access for websites and applications.`,
+            demoLink: 'https://storebytes.domsapps.com/',
+            githubLink: 'https://github.com/dominicspinks/StoreBytes',
+        },
         {
             img: ProjectPacerImg,
             title: 'ProjectPacer',
