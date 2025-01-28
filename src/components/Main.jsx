@@ -1,7 +1,7 @@
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profile.jpeg';
 // import resumeFile from '../assets/DominicSpinksResume.pdf';
 
 export default function Main() {
