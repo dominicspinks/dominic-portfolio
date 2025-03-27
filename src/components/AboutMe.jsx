@@ -28,15 +28,15 @@ export default function AboutMe() {
         },
         {
             category: 'Backend',
-            items: ['C#', '.NET', 'Node.js', 'Express', 'Python', 'Django', 'RESTful APIs']
+            items: ['C#', '.NET', 'Node.js', 'Express', 'Python', 'Django', 'RESTful APIs', 'GraphQL']
         },
         {
             category: 'Database',
-            items: ['PostgreSQL', 'MongoDB', 'Supabase', 'SQL']
+            items: ['PostgreSQL', 'SQL Server', 'MySQL', 'MongoDB', 'Supabase', 'SQL']
         },
         {
             category: 'Tools',
-            items: ['Git', 'GitHub', 'VS Code', 'Docker', 'AWS', 'CI/CD']
+            items: ['Git', 'GitHub', 'VS Code', 'Docker', 'AWS', 'CI/CD', 'Visual Studio', 'Postman']
         }
     ];
 
