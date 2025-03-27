@@ -2,15 +2,6 @@
 
 Welcome to my personal portfolio website! This project showcases my skills, projects, and experiences as a developer. Built with React and styled using Tailwind CSS, the website is designed to be clean, responsive, and easy to navigate.
 
-## Table of Contents
-
-- [Dominic Spinks Portfolio](#dominic-spinks-portfolio)
-    - [Table of Contents](#table-of-contents)
-    - [Features](#features)
-    - [Technologies Used](#technologies-used)
-    - [Screenshots](#screenshots)
-    - [Contact](#contact)
-
 ## Features
 
 -   **Responsive Design**: Ensures compatibility with various devices and screen sizes.
