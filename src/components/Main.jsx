@@ -1,61 +1,140 @@
+import { useState, useEffect } from 'react';
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
-
 import profileImg from '../assets/profile.jpeg';
-// import resumeFile from '../assets/DominicSpinksResume.pdf';
 
 export default function Main() {
+    // State to control animation
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        // Set visible after a small delay to trigger animations
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <div id='main'>
-            <div className='w-full h-screen top-0 left-0 bg-white flex flex-col lg:flex-row justify-center items-center gap-6'>
-                <img
-                    src={profileImg}
-                    alt='background'
-                    className='max-w-[250px] border-4 border-slate-900 rounded-full'
-                />
-                <div className='max-w-[700px] flex justify-center items-center gap-4'>
-                    <div className='flex flex-col justify-center items-start'>
-                        <h1 className='sm:text-5xl text-3xl font-bold text-slate-900'>
-                            Hi, I'm Dominic!
-                        </h1>
-                        <h3 className='sm:text-3xl text-2xl pt-4 text-gray-800'>
-                            Software Engineer
-                            <br />
-                            Based in Melbourne
-                        </h3>
-                        {/* <a
-                            href={resumeFile}
-                            target='_blank'
-                            className='border-2 border-slate-900 px-4 py-2 w-full text-center mt-4 hover:border-slate-700 hover:bg-gray-400 hover:text-white'>
-                            Check out my Resume Here
-                        </a> */}
+        <div className="w-full max-w-6xl px-4 md:px-8 py-10 md:py-16 md:pl-24 lg:pl-28">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-12">
+                {/* Left column with profile image - smaller on mobile */}
+                <div
+                    className={`relative transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                        }`}
+                >
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-blue-500/20 p-1 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm shadow-xl">
+                        <img
+                            src={profileImg}
+                            alt="Dominic Spinks"
+                            className="w-full h-full object-cover rounded-full"
+                        />
                     </div>
-                    <div className='flex flex-col justify-around pl-4 gap-4'>
+
+                    {/* Decorative circles - adjusted for mobile */}
+                    <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500/10 backdrop-blur-md animate-pulse"></div>
+                    <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 w-14 h-14 md:w-20 md:h-20 rounded-full bg-purple-500/10 backdrop-blur-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+                </div>
+
+                {/* Right column with text content - smaller fonts on mobile */}
+                <div className="flex-1 max-w-xl">
+                    <div
+                        className={`transition-all duration-700 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
+                        <div className="mb-2 inline-block px-3 py-1 border border-blue-500/20 rounded-full bg-blue-500/5 backdrop-blur-sm text-blue-400 text-xs sm:text-sm">
+                            Software Engineer
+                        </div>
+                    </div>
+
+                    <h1
+                        className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 transition-all duration-700 delay-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                            Hi, I'm
+                        </span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ml-2">
+                            Dominic!
+                        </span>
+                    </h1>
+
+                    <h2
+                        className={`text-lg sm:text-xl md:text-2xl text-gray-300 mb-3 md:mb-6 transition-all duration-700 delay-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
+                        Based in Melbourne, Australia
+                    </h2>
+
+                    <p
+                        className={`text-sm sm:text-base md:text-lg text-gray-400 mb-4 md:mb-8 transition-all duration-700 delay-900 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
+                        I build modern, responsive web applications with a focus on clean code,
+                        intuitive user experiences, and scalable architecture.
+                    </p>
+
+                    {/* CTA buttons - smaller on mobile */}
+                    <div
+                        className={`flex flex-wrap gap-3 md:gap-4 mb-4 md:mb-8 transition-all duration-700 delay-1100 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
                         <a
-                            href='https://github.com/dominicspinks'
-                            target='_blank'>
-                            <FaGithub
-                                className='hover:scale-110 ease-in duration-300 cursor-pointer'
-                                size={30}
-                            />
+                            href="#projects"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="px-4 sm:px-5 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium transition-transform hover:scale-105"
+                        >
+                            View My Work
                         </a>
+
                         <a
-                            href='https://www.linkedin.com/in/dominicspinks/'
-                            target='_blank'>
-                            <FaLinkedinIn
-                                className='hover:scale-110 ease-in duration-300 cursor-pointer'
-                                size={30}
-                            />
+                            href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="px-4 sm:px-5 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg border border-gray-600 text-gray-300 font-medium transition-all hover:border-blue-400 hover:text-blue-400"
+                        >
+                            Contact Me
                         </a>
-                        <a href='mailto:contact@dominicspinks.com'>
-                            <HiMail
-                                className='hover:scale-110 ease-in duration-300 cursor-pointer'
-                                size={30}
-                            />
+                    </div>
+
+                    {/* Social icons - slightly smaller on mobile */}
+                    <div
+                        className={`flex gap-4 md:gap-6 transition-all duration-700 delay-1300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
+                    >
+                        <a
+                            href="https://github.com/dominicspinks"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-all hover:text-blue-400 hover:border-blue-400"
+                        >
+                            <FaGithub size={16} className="md:text-xl" />
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/dominicspinks/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-all hover:text-blue-400 hover:border-blue-400"
+                        >
+                            <FaLinkedinIn size={16} className="md:text-xl" />
+                        </a>
+
+                        <a
+                            href="mailto:contact@dominicspinks.com"
+                            className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-all hover:text-blue-400 hover:border-blue-400"
+                        >
+                            <HiMail size={16} className="md:text-xl" />
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};

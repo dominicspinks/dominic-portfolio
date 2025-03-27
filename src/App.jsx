@@ -8,88 +8,85 @@ import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
 
 function App() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const startY = useRef(0); // Ref to track the start position of the touch
+    const [activeSection, setActiveSection] = useState('main');
+    const sections = ['main', 'aboutMe', 'projects', 'contact', 'footer'];
 
     useEffect(() => {
-        const sectionIds = ['main', 'aboutMe', 'projects', 'contact', 'footer'];
-        const sections = sectionIds.map((id) => document.getElementById(id));
+        const handleScroll = () => {
+            // Determine which section is most visible
+            const viewportHeight = window.innerHeight;
+            const viewportMiddle = window.scrollY + (viewportHeight / 2);
 
-        function handleScroll(event) {
-            const prevIndex = currentIndex;
-            let scrollOffset = 0;
-            if (event.deltaY > 0 && prevIndex < sections.length - 1) {
-                // Scrolling down
-                scrollOffset = 1;
-            } else if (event.deltaY < 0 && prevIndex > 0) {
-                // Scrolling up
-                scrollOffset = -1;
-            }
+            let closestSection = sections[0];
+            let closestDistance = Infinity;
 
-            setCurrentIndex(prevIndex + scrollOffset);
-            sections[prevIndex + scrollOffset].scrollIntoView({
-                behavior: 'smooth',
-            });
-            event.preventDefault(); // Prevent default scroll behavior
-        }
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const sectionMiddle = window.scrollY + rect.top + (rect.height / 2);
+                    const distance = Math.abs(viewportMiddle - sectionMiddle);
 
-        function handleTouchStart(event) {
-            if (event.touches.length > 0) {
-                startY.current = event.touches[0].clientY; // Record the starting Y position
-            }
-        }
-
-        function handleTouchEnd(event) {
-            if (event.changedTouches.length > 0) {
-                const endY = event.changedTouches[0].clientY;
-                const prevIndex = currentIndex;
-                let scrollOffset = 0;
-
-                if (endY > startY.current && prevIndex > 0) {
-                    // Swiping up
-                    scrollOffset = -1;
-                } else if (
-                    endY < startY.current &&
-                    prevIndex < sections.length - 1
-                ) {
-                    // Swiping down
-                    scrollOffset = 1;
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestSection = sectionId;
+                    }
                 }
+            });
 
-                setCurrentIndex(prevIndex + scrollOffset);
-                sections[prevIndex + scrollOffset].scrollIntoView({
-                    behavior: 'smooth',
-                });
-            }
-        }
-
-        window.addEventListener('wheel', handleScroll, { passive: false });
-        window.addEventListener('touchstart', handleTouchStart, {
-            passive: true,
-        });
-        window.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-        return () => {
-            window.removeEventListener('wheel', handleScroll);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchend', handleTouchEnd);
+            setActiveSection(closestSection);
         };
-    }, [currentIndex]);
 
-    // Function to handle navigation clicks
-    function handleNavClick(index) {
-        setCurrentIndex(index);
-    }
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [sections]);
+
+    const handleNavClick = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+            setActiveSection(sectionId);
+        }
+    };
 
     return (
-        <>
-            <Sidenav handleNavClick={handleNavClick} />
-            <Main />
-            <AboutMe />
-            <Projects />
-            <Contact />
-            <Footer />
-        </>
+        <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-x-hidden">
+            {/* Navigation sidebar */}
+            <Sidenav activeSection={activeSection} handleNavClick={handleNavClick} />
+
+            {/* Decorative background elements */}
+            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+                <div className="absolute bottom-1/3 -right-32 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl"></div>
+                <div className="absolute top-2/3 left-1/4 w-64 h-64 rounded-full bg-teal-500/10 blur-3xl"></div>
+            </div>
+
+            {/* Main content */}
+            <div className="relative z-10">
+                <section id="main" className="min-h-screen flex items-center justify-center">
+                    <Main />
+                </section>
+
+                <section id="aboutMe" className="min-h-screen flex items-center justify-center">
+                    <AboutMe />
+                </section>
+
+                <section id="projects" className="min-h-screen flex items-center justify-center">
+                    <Projects />
+                </section>
+
+                <section id="contact" className="min-h-screen flex items-center justify-center">
+                    <Contact />
+                </section>
+
+                <section id="footer" className="pt-10">
+                    <Footer />
+                </section>
+            </div>
+        </div>
     );
 }
 
