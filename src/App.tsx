@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import Sidenav from './components/Sidenav';
 import Main from './components/Main';
+import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
 
-function App() {
+export default function App() {
     const [activeSection, setActiveSection] = useState('main');
     const sections = ['main', 'aboutMe', 'projects', 'contact', 'footer'];
 
@@ -41,7 +41,7 @@ function App() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [sections]);
 
-    const handleNavClick = (sectionId) => {
+    const handleNavClick = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
             window.scrollTo({
@@ -89,5 +89,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

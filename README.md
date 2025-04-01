@@ -1,6 +1,6 @@
 # Dominic Spinks Portfolio
 
-Welcome to my personal portfolio website! This project showcases my skills, projects, and experiences as a developer. Built with React and styled using Tailwind CSS, the website is designed to be clean, responsive, and easy to navigate.
+Welcome to my personal portfolio website! This project showcases my skills, projects, and experiences as a developer. Built with React and Typescript, styled using Tailwind CSS, the website is designed to be clean, responsive, and easy to navigate.
 
 ## Features
 
@@ -14,7 +14,9 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 -   **Frontend**:
 
     -   React
+    -   Typescript
     -   Tailwind CSS
+    -   EmailJS
 
 -   **Build Tools**:
     -   Vite

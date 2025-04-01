@@ -4,17 +4,31 @@ import { FaLinkedinIn, FaGithub, FaLocationDot } from 'react-icons/fa6';
 import { HiMail } from 'react-icons/hi';
 import { FaPaperPlane } from 'react-icons/fa';
 
+interface FormData {
+    from_name: string;
+    from_email: string;
+    from_phone: string;
+    message: string;
+}
+
+interface FormErrorData {
+    from_name?: string;
+    from_email?: string;
+    from_phone?: string;
+    message?: string;
+}
+
 export default function Contact() {
-    const form = useRef();
+    const form = useRef<HTMLFormElement>(null);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         from_name: '',
         from_email: '',
         from_phone: '',
         message: ''
     });
-    const [formErrors, setFormErrors] = useState({});
+    const [formErrors, setFormErrors] = useState<FormErrorData>({});
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,7 +48,7 @@ export default function Contact() {
     }, []);
 
     const validateForm = () => {
-        const errors = {};
+        const errors: FormErrorData = {};
 
         if (!formData.from_name.trim()) {
             errors.from_name = "Name is required";
@@ -54,17 +68,17 @@ export default function Contact() {
         return Object.keys(errors).length === 0;
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
 
         // Clear error when user starts typing
-        if (formErrors[name]) {
+        if (formErrors[name as keyof FormErrorData]) {
             setFormErrors({ ...formErrors, [name]: undefined });
         }
     };
 
-    const sendEmail = (e) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!validateForm()) {
@@ -72,7 +86,7 @@ export default function Contact() {
         }
 
         emailjs
-            .sendForm('service_9ninlqb', 'template_3i22kjj', form.current, {
+            .sendForm('service_9ninlqb', 'template_3i22kjj', form.current!, {
                 publicKey: '_vScShfGw_s20VTwu',
             })
             .then(
@@ -254,7 +268,7 @@ export default function Contact() {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    rows="6"
+                                    rows={6}
                                     className={`w-full p-3 bg-gray-900/70 border ${formErrors.message ? 'border-red-500/70' : 'border-gray-700'} rounded-lg text-gray-200 text-sm focus:border-blue-500 focus:outline-none transition-colors`}
                                 ></textarea>
                                 {formErrors.message && (

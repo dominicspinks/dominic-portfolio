@@ -1,8 +1,19 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaHome, FaUser, FaLaptopCode, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 
-export default function Sidenav({ activeSection, handleNavClick }) {
-    const [hoverItem, setHoverItem] = useState(null);
+interface SideNavProps {
+    activeSection: string;
+    handleNavClick: (sectionId: string) => void;
+}
+
+interface NavItem {
+    id: string;
+    icon: React.ElementType;
+    label: string;
+};
+
+export default function Sidenav({ activeSection, handleNavClick }: SideNavProps) {
+    const [hoverItem, setHoverItem] = useState<string | null>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,8 +28,8 @@ export default function Sidenav({ activeSection, handleNavClick }) {
 
     // Close mobile menu when clicking outside
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (mobileMenuOpen && !event.target.closest('#mobile-menu') && !event.target.closest('#menu-toggle')) {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            if (mobileMenuOpen && !(event.target as Element).closest('#mobile-menu') && !(event.target as Element).closest('#menu-toggle')) {
                 setMobileMenuOpen(false);
             }
         };
@@ -29,18 +40,17 @@ export default function Sidenav({ activeSection, handleNavClick }) {
         };
     }, [mobileMenuOpen]);
 
-    const navItems = [
+    const navItems: NavItem[] = [
         { id: 'main', icon: FaHome, label: 'Home' },
         { id: 'aboutMe', icon: FaUser, label: 'About Me' },
         { id: 'projects', icon: FaLaptopCode, label: 'Projects' },
         { id: 'contact', icon: FaEnvelope, label: 'Contact' }
     ];
 
-    const handleMobileNavClick = (sectionId) => {
+    const handleMobileNavClick = (sectionId: string) => {
         handleNavClick(sectionId);
         setMobileMenuOpen(false);
     };
-
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -125,7 +135,7 @@ export default function Sidenav({ activeSection, handleNavClick }) {
                     </div>
 
                     <ul className="flex flex-col space-y-6 mb-12 w-full">
-                        {navItems.map((item, index) => {
+                        {navItems.map((item) => {
                             const Icon = item.icon;
                             const isActive = activeSection === item.id;
 

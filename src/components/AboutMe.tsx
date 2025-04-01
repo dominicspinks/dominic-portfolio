@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react';
 import { FaCode, FaLaptopCode, FaUserTie, FaLightbulb } from 'react-icons/fa';
 
+interface Skill {
+    category: string;
+    items: string[];
+}
+
+interface Strength {
+    icon: React.ElementType;
+    title: string;
+    description: string;
+}
+
 export default function AboutMe() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const section = document.getElementById('aboutMe');
+            const section: Element | null = document.getElementById('aboutMe');
             if (section) {
                 const sectionTop = section.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
@@ -21,7 +32,7 @@ export default function AboutMe() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const skills = [
+    const skills: Skill[] = [
         {
             category: 'Frontend',
             items: ['React', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Tailwind CSS', 'Responsive Design']
@@ -41,7 +52,7 @@ export default function AboutMe() {
     ];
 
     // Core strengths
-    const strengths = [
+    const strengths: Strength[] = [
         {
             icon: FaCode,
             title: 'Technical Expertise',

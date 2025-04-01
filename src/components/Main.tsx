@@ -84,7 +84,7 @@ export default function Main() {
                             href="#projects"
                             onClick={(e) => {
                                 e.preventDefault();
-                                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                                (document.getElementById('projects') as Element).scrollIntoView({ behavior: 'smooth' });
                             }}
                             className="px-4 sm:px-5 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium transition-transform hover:scale-105"
                         >
@@ -95,7 +95,7 @@ export default function Main() {
                             href="#contact"
                             onClick={(e) => {
                                 e.preventDefault();
-                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                                (document.getElementById('contact') as Element).scrollIntoView({ behavior: 'smooth' });
                             }}
                             className="px-4 sm:px-5 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg border border-gray-600 text-gray-300 font-medium transition-all hover:border-blue-400 hover:text-blue-400"
                         >
@@ -127,7 +127,7 @@ export default function Main() {
                         </a>
 
                         <a
-                            href="mailto:contact@dominicspinks.com"
+                            href="mailto:dominic.spinks@outlook.com"
                             className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-all hover:text-blue-400 hover:border-blue-400"
                         >
                             <HiMail size={16} className="md:text-xl" />

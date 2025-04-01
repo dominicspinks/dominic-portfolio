@@ -7,9 +7,19 @@ import TripMixerImg from '../assets/tripMixer.png';
 import RepRealmImg from '../assets/repRealm.png';
 import StoreBytesImg from '../assets/storeBytes.png';
 
+export interface Project {
+    id: number;
+    img: string;
+    title: string;
+    tech: string[];
+    description: string;
+    demoLink: string;
+    githubLink: string;
+}
+
 export default function Projects() {
     const [isVisible, setIsVisible] = useState(false);
-    const [allProjects, setAllProjects] = useState([
+    const [allProjects] = useState<Project[]>([
         {
             id: 1,
             img: StoreBytesImg,
@@ -49,8 +59,8 @@ export default function Projects() {
     ]);
 
     // Separate featured projects from gallery projects
-    const [featuredProjects, setFeaturedProjects] = useState([]);
-    const [galleryProjects, setGalleryProjects] = useState([]);
+    const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
+    const [galleryProjects, setGalleryProjects] = useState<Project[]>([]);
 
     // Set initial featured and gallery projects
     useEffect(() => {
@@ -77,7 +87,7 @@ export default function Projects() {
     }, []);
 
     // Function to promote a gallery project to featured
-    const promoteProject = (projectId) => {
+    const promoteProject = (projectId: number) => {
         // Find the project in gallery
         const projectToPromote = galleryProjects.find(project => project.id === projectId);
         if (!projectToPromote) return;
