@@ -4,8 +4,9 @@ import { BiLinkExternal } from 'react-icons/bi';
 
 import ProjectPacerImg from '../assets/projectPacer.png';
 import TripMixerImg from '../assets/tripMixer.png';
-import RepRealmImg from '../assets/repRealm.png';
+import RepRealmEJSImg from '../assets/repRealmejs.png';
 import StoreBytesImg from '../assets/storeBytes.png';
+import RepRealmImg from '../assets/reprealm.png'
 
 export interface Project {
     id: number;
@@ -22,6 +23,19 @@ export default function Projects() {
     const [allProjects] = useState<Project[]>([
         {
             id: 1,
+            img: RepRealmImg,
+            title: 'RepRealm',
+            tech: ['React Native', 'Node.js', 'NestJS', 'PostgreSQL'],
+            description: `RepRealm is a fitness app for creating and tracking workouts. I developed this application to help users create custom exercises and routines to track their progress and manage their workouts effectively.
+
+It enables users to build personalised exercise libraries, design workout routines, and monitor their fitness journey through an intuitive mobile interface.
+
+The app features a React Native mobile frontend with Drizzle ORM and SQLite for local database management, paired with a Node.js and NestJS backend using PostgreSQL and Prisma ORM.`,
+            demoLink: '',
+            githubLink: 'https://github.com/dominicspinks/RepRealm',
+        },
+        {
+            id: 2,
             img: StoreBytesImg,
             title: 'StoreBytes',
             tech: ['C#', '.NET 8', 'PostgreSQL'],
@@ -30,7 +44,7 @@ export default function Projects() {
             githubLink: 'https://github.com/dominicspinks/StoreBytes',
         },
         {
-            id: 2,
+            id: 3,
             img: ProjectPacerImg,
             title: 'ProjectPacer',
             tech: ['React', 'Supabase', 'Tailwind CSS'],
@@ -39,7 +53,7 @@ export default function Projects() {
             githubLink: 'https://github.com/dominicspinks/ProjectPacer',
         },
         {
-            id: 3,
+            id: 4,
             img: TripMixerImg,
             title: 'TripMixer',
             tech: ['Python', 'Django', 'PostgreSQL'],
@@ -48,11 +62,16 @@ export default function Projects() {
             githubLink: 'https://github.com/dominicspinks/TripMixer',
         },
         {
-            id: 4,
-            img: RepRealmImg,
-            title: 'RepRealm',
-            tech: ['MongoDB', 'Express', 'Node.js'],
-            description: 'RepRealm is a web application for creating and storing your custom workout routines. Users can browse through the repository of other user\'s shared workouts, saving those they like to perform for themselves.',
+            id: 5,
+            img: RepRealmEJSImg,
+            title: 'RepRealm (original)',
+            tech: ['MongoDB', 'Express', 'EJS', 'Node.js'],
+            description: `This is my original version of RepRealm, using the MEEN stack and my first application deployed.
+
+RepRealm is a web application for creating, storing and sharing your custom workout routines.
+Users can browse through the repository of other user's shared workouts, saving those they like to perform for themselves.
+
+This version of RepRealm has now been replaced with an updated version using React and NestJS.`,
             demoLink: 'https://reprealm.dominicspinks.com/',
             githubLink: 'https://github.com/dominicspinks/RepRealm-EJS',
         },
@@ -147,11 +166,11 @@ export default function Projects() {
                     >
                         <div className="flex flex-col md:flex-row">
                             {/* Project Image */}
-                            <div className="md:w-1/2 h-56 md:h-auto relative overflow-hidden">
+                            <div className="md:w-1/2 h-56 md:h-auto md:max-h-[500px] relative overflow-hidden">
                                 <img
                                     src={project.img}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
 
@@ -172,7 +191,7 @@ export default function Projects() {
                             {/* Project Details */}
                             <div className="md:w-1/2 p-6">
                                 <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                                <p className="text-gray-300 mb-6 text-sm">
+                                <p style={{ whiteSpace: 'pre-line' }} className="text-gray-300 mb-6 text-sm">
                                     {project.description}
                                 </p>
 
