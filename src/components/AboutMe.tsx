@@ -35,11 +35,11 @@ export default function AboutMe() {
     const skills: Skill[] = [
         {
             category: 'Frontend',
-            items: ['React', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Tailwind CSS', 'Responsive Design']
+            items: ['React', 'Angular', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Tailwind CSS', 'Responsive Design']
         },
         {
             category: 'Backend',
-            items: ['C#', '.NET', 'Node.js', 'Express', 'Python', 'Django', 'RESTful APIs', 'GraphQL']
+            items: ['C#', '.NET', 'Node.js', 'Express', 'Python', 'Django', 'Django REST Framework', 'RESTful APIs', 'GraphQL']
         },
         {
             category: 'Database',
