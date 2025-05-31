@@ -7,6 +7,7 @@ import TripMixerImg from '../assets/tripMixer.png';
 import RepRealmEJSImg from '../assets/repRealmejs.png';
 import StoreBytesImg from '../assets/storeBytes.png';
 import RepRealmImg from '../assets/reprealm.png'
+import LifeImg from '../assets/life-budget.png';
 
 export interface Project {
     id: number;
@@ -23,6 +24,19 @@ export default function Projects() {
     const [allProjects] = useState<Project[]>([
         {
             id: 1,
+            img: LifeImg,
+            title: 'Life',
+            tech: ['Angular', 'Python', 'Django', 'PostgreSQL'],
+            description: `Life is a tool to manage your life admin. I created this application to replace the numerous google sheets I was using to manage my life.
+
+The key feature is the budget tool, which allows you to record your income and expenses and stay on track with your budget. It also features a customisable list module, allowing you to create lists of any content you need.
+
+The app features an Angular frontend and Django REST Framework API using PostgreSQL.`,
+            demoLink: 'https://life.domsapps.com/',
+            githubLink: 'https://github.com/dominicspinks/Life',
+        },
+        {
+            id: 2,
             img: RepRealmImg,
             title: 'RepRealm',
             tech: ['React Native', 'Node.js', 'NestJS', 'PostgreSQL'],
@@ -35,7 +49,7 @@ The app features a React Native mobile frontend with Drizzle ORM and SQLite for 
             githubLink: 'https://github.com/dominicspinks/RepRealm',
         },
         {
-            id: 2,
+            id: 3,
             img: StoreBytesImg,
             title: 'StoreBytes',
             tech: ['C#', '.NET 8', 'PostgreSQL'],
@@ -44,7 +58,7 @@ The app features a React Native mobile frontend with Drizzle ORM and SQLite for 
             githubLink: 'https://github.com/dominicspinks/StoreBytes',
         },
         {
-            id: 3,
+            id: 4,
             img: ProjectPacerImg,
             title: 'ProjectPacer',
             tech: ['React', 'Supabase', 'Tailwind CSS'],
@@ -53,7 +67,7 @@ The app features a React Native mobile frontend with Drizzle ORM and SQLite for 
             githubLink: 'https://github.com/dominicspinks/ProjectPacer',
         },
         {
-            id: 4,
+            id: 5,
             img: TripMixerImg,
             title: 'TripMixer',
             tech: ['Python', 'Django', 'PostgreSQL'],
@@ -62,7 +76,7 @@ The app features a React Native mobile frontend with Drizzle ORM and SQLite for 
             githubLink: 'https://github.com/dominicspinks/TripMixer',
         },
         {
-            id: 5,
+            id: 6,
             img: RepRealmEJSImg,
             title: 'RepRealm (original)',
             tech: ['MongoDB', 'Express', 'EJS', 'Node.js'],
